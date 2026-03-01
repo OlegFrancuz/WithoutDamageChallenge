@@ -9,7 +9,7 @@ jobs:
     permissions:
       issues: write
     steps:
-      - name: Apply Mod Loader Labels
+      - name: Apply Labels
         uses: actions/github-script@v7
         with:
           script: |
@@ -21,6 +21,11 @@ jobs:
             if (body.includes('Which Mod Loader are you using?\n\nNeoForge')) labelsToAdd.push('NeoForge');
             if (body.includes('Which Mod Loader are you using?\n\nForge')) labelsToAdd.push('Forge');
             if (body.includes('Which Mod Loader are you using?\n\nFabric')) labelsToAdd.push('Fabric');
+            
+            if (body.includes('[X] Game condition change')) labelsToAdd.push('Game Condition');
+            if (body.includes('[X] New difficulty mechanic')) labelsToAdd.push('Add Mechanic');
+            if (body.includes('[X] Toggleable feature addition')) labelsToAdd.push('Addition Config');
+            if (body.includes('[X] Another')) labelsToAdd.push('Another');
             
             if (labelsToAdd.length > 0) {
               await github.rest.issues.addLabels({
