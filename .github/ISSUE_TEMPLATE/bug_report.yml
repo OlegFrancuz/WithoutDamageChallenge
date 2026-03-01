@@ -1,0 +1,40 @@
+name: Bug Report
+description: Create a report to help us improve the mod
+title: "[Bug]: "
+labels: ["Bug"]
+body:
+  - type: dropdown
+    id: loader
+    attributes:
+      label: Which Mod Loader are you using?
+      options:
+        - NeoForge
+        - Forge
+        - Fabric
+    validations:
+      required: true
+  - type: input
+    id: mc-version
+    attributes:
+      label: Minecraft Version
+      placeholder: e.g. 1.21.1
+    validations:
+      required: true
+  - type: input
+    id: mod-version
+    attributes:
+      label: Mod Version
+      placeholder: e.g. 1.1.0
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain your problem.
